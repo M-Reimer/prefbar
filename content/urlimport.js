@@ -141,6 +141,7 @@ function downloadDone(status) {
   goPrefBar.ImpExp.Import(window, gTempfile);
 
   goPrefBar.msgAlert(window, goPrefBar.GetString("urlimport.properties", "msgsuccess"));
+  gDownloader = null;
   cleanup();
   window.close();
 }
@@ -177,7 +178,10 @@ function checkChecksum(aPath, aHashType, aChecksum) {
   istream.close();
 
   // convert the binary hash data to a hex string.
-  var s = [toHexString(hash.charCodeAt(i)) for (i in hash)].join("");
+  var s = "";
+  for (i in hash) {
+    s += toHexString(hash.charCodeAt(i));
+  }
 
   if (s.toLowerCase() == aChecksum.toLowerCase()) return true;
   return false;
@@ -247,6 +251,8 @@ PersistProgressListener.prototype = {
 
   onStateChange : function(aWebProgress, aRequest, aStateFlags, aStatus) {
     if (aStateFlags & Components.interfaces.nsIWebProgressListener.STATE_STOP) {
+      // Prevent any further state change messages
+      gDownloader.progressListener = null;
       downloadDone(aStatus);
     }
   },

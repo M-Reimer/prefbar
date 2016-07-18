@@ -686,7 +686,8 @@ function GoLink(url, event) {
 
     if (!middleClick) {
       browser.loadURI(url);
-      window.content.focus();
+      if (window.content) // window.content is obsolete with electrolysis
+        window.content.focus();
     }
     else {
       if (pref_opentab) {

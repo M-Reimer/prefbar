@@ -114,7 +114,7 @@
               ref="prefbar:menu:disabled"
               onfocus="AllTreeFocus()"
               onkeypress="TreeKeypress(event);"
-              ondraggesture="BeginDragTree(event, this)"
+              ondragstart="BeginDragTree(event, this)"
               ondrop="DropOnTree(event, this)"
               ondragover="DragOverTree(event)">
           <treecols>
@@ -138,7 +138,7 @@
               ref="prefbar:menu:enabled"
               onfocus="EnabledTreeFocus()"
               onkeypress="TreeKeypress(event);"
-              ondraggesture="BeginDragTree(event, this)"
+              ondragstart="BeginDragTree(event, this)"
               ondrop="DropOnTree(event, this)"
               ondragover="DragOverTree(event)">
           <treecols>

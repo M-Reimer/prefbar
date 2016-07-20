@@ -58,7 +58,7 @@
   "prefbar:button:savepage":{
     "label":"Save Page",
     "type":"button",
-    "onclick":"if (window.content)\n  window.saveDocument(window.content.document);\nelse\n  window.saveDocument(window.gBrowser.selectedBrowser.contentDocumentAsCPOW);"
+    "onclick":"if (window.content)\n  window.saveDocument(window.content.document);\nelse if (\"saveBrowser\" in window)\n  window.saveBrowser(gBrowser.selectedBrowser);\nelse\n  alert(\"Save Page currently not supported for your browser\");"
   },
   "prefbar:button:separator8":{
     "type":"separator"
@@ -372,7 +372,8 @@
   "prefbar:button:killflash":{
     "label":"Kill Flash",
     "type":"button",
-    "onclick":"prefbarKillFlash()"
+    "onclick":"CallFrameScript()",
+    "framescript":"prefbarKillFlash()"
   },
   "prefbar:button:separator12":{
     "type":"separator"

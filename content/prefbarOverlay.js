@@ -815,6 +815,11 @@ function LegacyCallFrameScript(aButton, aId, aCaller, aArgument, aCallback) {
   sandbox.content = window.content;
   sandbox.Components = Components;
 
+  // Load commands we provide for usage in frame scripts
+  var oLoader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
+    .getService(Components.interfaces.mozIJSSubScriptLoader);
+  oLoader.loadSubScript("chrome://prefbar/content/framescriptCommands.js", sandbox);
+
   try {
     Components.utils.evalInSandbox(aButton.framescript, sandbox, "1.8", "prefbar://" + aId.substr(15) + "/framescript");
 

@@ -47,6 +47,11 @@ function handleMessageFromChrome(aMessage) {
     .createInstance(Components.interfaces.nsIPrincipal);
   var sandbox = new Components.utils.Sandbox(principal, {sandboxPrototype: context});
 
+  // Load commands we provide for usage in frame scripts
+  var oLoader = Components.classes["@mozilla.org/moz/jssubscript-loader;1"]
+    .getService(Components.interfaces.mozIJSSubScriptLoader);
+  oLoader.loadSubScript("chrome://prefbar/content/framescriptCommands.js", sandbox);
+
   sandbox.argument = aMessage.data.argument;
   sandbox.caller = aMessage.data.caller;
   sandbox.reply = false;

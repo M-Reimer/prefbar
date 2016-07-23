@@ -720,17 +720,13 @@ function prefbarOpenPrefs() {
     return;
   }
 
-  if (!goPrefBar.InSM()) {
-    var prefWin = wm.getMostRecentWindow("prefbar:preferences");
-    if (prefWin)
-      prefWin.focus();
-    else
-      openDialog('chrome://prefbar/content/prefbar-bird-pref.xul',
-                 'PrefBar',
-                 'chrome,titlebar,toolbar');
-  }
+  var prefWin = wm.getMostRecentWindow("prefbar:preferences");
+  if (prefWin)
+    prefWin.focus();
   else
-    goPreferences('prefbar_editbar_pane');
+    openDialog('chrome://prefbar/content/prefbar-bird-pref.xul',
+               'PrefBar',
+               'chrome,titlebar,toolbar');
 }
 
 // This function checks if the given toolbar item is not placed to any toolbar

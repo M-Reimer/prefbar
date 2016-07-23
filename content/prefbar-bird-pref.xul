@@ -62,34 +62,6 @@
   <![CDATA[
     Components.utils.import("chrome://prefbar/content/goprefbar.jsm");
 
-    //
-    // This window will also be called by the Addons manager in SeaMonkey
-    // As we don't want it there, we'll forward the call to the original
-    // SeaMonkey pref system.
-    //
-    if (goPrefBar.InSM()) {
-      var wm = goPrefBar.WindowMediator;
-      var editWin = wm.getMostRecentWindow("prefbar:btneditor");
-
-      // Button editor found
-      if (editWin)
-        editWin.focus();
-      else {
-        // We ask the first window with "goPreferences" to open the pref system
-        // for us, so the preferences window can not get modal to this window.
-        var wins = wm.getEnumerator(null);
-        while(wins.hasMoreElements()) {
-          var win = wins.getNext();
-          if (win.goPreferences) {
-            win.goPreferences("prefbar_editbar_pane");
-            break;
-          }
-        }
-      }
-
-      setTimeout(function(){window.close();}, 0);
-    }
-
     // Some getter injections to modify behaviour of prefwindow
     function loadHandler(event) {
       // Animation stuff sucks! This is default on Mac and effectively destroys
@@ -102,6 +74,10 @@
       document.documentElement.__defineGetter__(
         "lastSelected", function() { return "prefbar_editbar_pane"; }
       );
+
+      // SeaMonkey forces its prefwindow changes to *all* prefwindows *facepalm*
+      if (goPrefBar.InSM())
+        document.documentElement.setPaneTitle = function() {};
     }
     window.addEventListener("DOMContentLoaded", loadHandler, true);
 

@@ -56,7 +56,7 @@ function handleMessageFromChrome(aMessage) {
   sandbox.caller = aMessage.data.caller;
   sandbox.reply = false;
 
-  Components.utils.evalInSandbox(aMessage.data.code, sandbox, "1.8", "prefbar://" + aMessage.data.id.substr(15) + "/framescript");
+  Components.utils.evalInSandbox(aMessage.data.code, sandbox, "1.8", "data:application/javascript;charset=UTF-8," + encodeURI("//Button-ID: " + aMessage.data.id.substr(15) + " Function: framescript\n" + aMessage.data.code), 2);
 
   if (aMessage.objects.callback)
     aMessage.objects.callback(sandbox.reply);

@@ -4,9 +4,6 @@ overlay	about:config	chrome://prefbar/content/aboutConfigOverlay.xul
 
 style	chrome://global/content/customizeToolbar.xul	chrome://prefbar/skin/prefbarOverlay.css
 
-component {69ec8ad6-d3e6-4abc-a7f9-982bf6108392} components/protocolhandler.js
-contract @mozilla.org/network/protocol;1?name=prefbar {69ec8ad6-d3e6-4abc-a7f9-982bf6108392}
-
 content	prefbar	jar:chrome/prefbar.jar!/content/
 skin	prefbar	classic/1.0	jar:chrome/prefbar.jar!/skin/
 locale	prefbar	en-US	jar:chrome/prefbar.jar!/locale/en-US/

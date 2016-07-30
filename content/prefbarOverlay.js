@@ -761,7 +761,7 @@ function ExecuteButtonCode(aCode, aId, aFname, aContext) {
   // Execute button code
   var result;
   try {
-    result = Components.utils.evalInSandbox(aCode, sandbox, "1.8", "prefbar://" + aId.substr(15) + "/" + aFname);
+    result = Components.utils.evalInSandbox(aCode, sandbox, "1.8", "data:application/javascript;charset=UTF-8," + encodeURI("//Button-ID: " + aId.substr(15) + " Function: " + aFname + "\n" + aCode), 2);
   } catch(e) {
     goPrefBar.ReportException(e);
   }
@@ -817,7 +817,7 @@ function LegacyCallFrameScript(aButton, aId, aCaller, aArgument, aCallback) {
   oLoader.loadSubScript("chrome://prefbar/content/framescriptCommands.js", sandbox);
 
   try {
-    Components.utils.evalInSandbox(aButton.framescript, sandbox, "1.8", "prefbar://" + aId.substr(15) + "/framescript");
+    Components.utils.evalInSandbox(aButton.framescript, sandbox, "1.8", "data:application/javascript;charset=UTF-8," + encodeURI("//Button-ID: " + aId.substr(15) + " Function: framescript\n" + aButton.framescript), 2);
 
     if (aCallback)
       aCallback(sandbox.reply);

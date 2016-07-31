@@ -3,8 +3,8 @@
 # Makefile for PrefBar
 #
 
-VERSION=7.0.0
-BUILD=20150604
+VERSION=7.1.0rc1
+BUILD=20160731
 
 .PHONY: all patch chrome xpi clean check-tree update-ja webhelp
 all: patch xpi
@@ -30,7 +30,6 @@ chrome:
 xpi: chrome
 	@rm -f prefbar-trunk.xpi
 	zip -r9 prefbar-trunk.xpi chrome \
-                          components/*.js \
                           defaults/preferences/prefs.js \
                           chrome.manifest \
                           install.rdf

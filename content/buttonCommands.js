@@ -46,6 +46,8 @@
 // |  "prefbar" to differentiate PrefBar API functions from global browser code
 // +-
 
+Components.utils.import("resource://gre/modules/PlacesUtils.jsm");
+
 //
 // Colors checkbox
 //
@@ -153,9 +155,10 @@ function prefbarClearCookies() {
 //
 
 function prefbarClearHistory() {
-  // use try/catch for everything but the last task so we clear as much as
-  // possible
-  try {
+  // New interface since Firefox 48
+  if ("PlacesUtils" in window && "history" in PlacesUtils)
+    PlacesUtils.history.clear();
+  else {
     var history;
     // New interface since Firefox 22 and SeaMonkey 2.19
     if ("nsINavHistoryService" in Components.interfaces)
@@ -167,7 +170,7 @@ function prefbarClearHistory() {
       history = Components.classes["@mozilla.org/browser/global-history;2"]
         .getService(Components.interfaces.nsIBrowserHistory);
     history.removeAllPages();
-  } catch(ex) {goPrefBar.dump("ERROR: Clear history failed");}
+  }
 
   try {
     goPrefBar.ObserverService

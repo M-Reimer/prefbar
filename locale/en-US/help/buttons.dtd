@@ -24,10 +24,6 @@
 <!ENTITY no "NO">
 
 <!-- Labels of buttons -->
-<!ENTITY back.label "Back">
-<!ENTITY forward.label "Forward">
-<!ENTITY reload.label "Reload">
-<!ENTITY stop.label "Stop">
 <!ENTITY home.label "Home">
 <!ENTITY tabjavascript.label "Javascript (Tab)">
 <!ENTITY tabimages.label "Images (Tab)">
@@ -56,7 +52,6 @@
 <!ENTITY clearall.label "Clear All">
 <!ENTITY resize.label "Resize">
 <!ENTITY newtab.label "New Tab">
-<!ENTITY savepage.label "Save Page">
 <!ENTITY restoretab.label "Restore Tab">
 <!ENTITY killflash.label "Kill Flash">
 <!ENTITY fontdown.label "Font -">
@@ -72,10 +67,6 @@
 <!ENTITY prefbarlanglist.label "Language">
 
 <!-- Button descriptions -->
-<!ENTITY back.desc "This is a very simple back button, that takes you to the previous page in your browser history, just like the back button on the navigation toolbar. Unlike the back button on the navigation toolbar, however, this button doesn't have a history drop down menu, doesn't have an icon, and doesn't become disabled, when there is no page to go back to. Like I said, it's just a simple back button.">
-<!ENTITY forward.desc "This is a very simple forward button, just like the very simple back button described above. All limitations mentioned there also apply here.">
-<!ENTITY reload.desc "This is a very simple reload button, to go with the very simple back button and the very simple forward button. Unlike the aforementioned other two, this button actually has all the functionality of its navigation bar equivlent, meaning that you can click it with shift to get a cacheless reload, or just click it for a regular reload.">
-<!ENTITY stop.desc "A very simple stop button, to finish off the group. This doesn't have observers setup either, so it will be enabled even when navigator is not currently doing anything (at which time clicking it will have absolutely no effect whatsoever).">
 <!ENTITY home.desc "Although this button doesn't look as nice as the real home button (it doesn't have the icon, at least not yet) clicking it will bring you to your homepage just as fast.">
 <!ENTITY tabjavascript.desc "This toggles javascript for the selected tab.">
 <!ENTITY tabimages.desc "This toggles images for the selected tab.">
@@ -108,7 +99,6 @@
 <!ENTITY clearall.desc "Clears the History, the Location Bar, Disk Cache, and Memory Cache.">
 <!ENTITY resize.desc "Resizes the browser window to the resolution you select in the menulist.">
 <!ENTITY newtab.desc "Opens a new browser tab. I don't really know how useful this would be, but somebody wanted it so I put it in.">
-<!ENTITY savepage.desc "Click this button to save the current page on disk.">
 <!ENTITY restoretab.desc "This button will restore the last closed tab.">
 <!ENTITY killflash.desc "Click this button, to remove all flash embeds in the current page.">
 <!ENTITY fontdown.desc "Decrease the font size.">
@@ -126,7 +116,6 @@
 <!ENTITY proxylist.desc "A list, where you can add some proxies, you need, with the needed ports. This makes it easy to switch between the proxies.">
 <!ENTITY prefbarlanglist.desc "Enables to switch the language identifier, sent to webservers. The entry &quot;Default&quot; resets the setting of this preference back to the default setting, the author of your Firefox/SeaMonkey language pack defined for your locale.">
 
-<!ENTITY separator1.desc "This is a separator to go between the navigation buttons and the home button (or whatever else you put to the the right of the navigation buttons). There are several separators defined in the prefbar button list, one for each group of items. They do take a small amound of horizontal space on the toolbar, but they make things look so nice that I'd recomend having them enabled, unless you have a really small moniter (or just want to enabled a large number of buttons at once.)">
 <!ENTITY separator2.desc "A separator, designed to go to the right of the home button. You can (of course) move this to where ever place on the toolbar you want.">
 <!ENTITY separatorX.desc "Another separator.">
 <!ENTITY spacer0.desc "This widget doesn't display anything, but expands as big as it can, taking up all the extra space available and forcing everything to its right to the far right edge of the toolbar.">

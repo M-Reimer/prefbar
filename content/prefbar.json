@@ -7,7 +7,6 @@
       "prefbar:button:separator10",
       "prefbar:button:clearallcache",
       "prefbar:button:separator11",
-      "prefbar:button:savepage",
       "prefbar:button:separator8",
       "prefbar:button:useragent",
       "prefbar:button:spacer0",
@@ -54,11 +53,6 @@
   },
   "prefbar:button:separator11":{
     "type":"separator"
-  },
-  "prefbar:button:savepage":{
-    "label":"Save Page",
-    "type":"button",
-    "onclick":"if (window.content)\n  window.saveDocument(window.content.document);\nelse if (\"saveBrowser\" in window)\n  window.saveBrowser(gBrowser.selectedBrowser);\nelse\n  alert(\"Save Page currently not supported for your browser\");"
   },
   "prefbar:button:separator8":{
     "type":"separator"
@@ -117,12 +111,7 @@
     "onclick":"prefbarOpenPrefs();"
   },
   "prefbar:menu:disabled":{
-    "items":["prefbar:button:back",
-      "prefbar:button:forward",
-      "prefbar:button:reload",
-      "prefbar:button:stop",
-      "prefbar:button:separator0",
-      "prefbar:button:home",
+    "items":["prefbar:button:home",
       "prefbar:button:separator13",
       "prefbar:button:prefbartabjavascript",
       "prefbar:button:prefbartabimages",
@@ -163,32 +152,6 @@
       "prefbar:button:proxylist",
       "prefbar:button:prefbarlanglist"
     ]
-  },
-  "prefbar:button:back":{
-    "label":"Back",
-    "type":"button",
-    "onclick":"BrowserBack();",
-    "observes":"canGoBack"
-  },
-  "prefbar:button:forward":{
-    "label":"Forward",
-    "type":"button",
-    "onclick":"BrowserForward();",
-    "observes":"canGoForward"
-  },
-  "prefbar:button:reload":{
-    "label":"Reload",
-    "type":"button",
-    "onclick":"if (event.shiftKey) BrowserReloadSkipCache(); else BrowserReload();"
-  },
-  "prefbar:button:stop":{
-    "label":"Stop",
-    "type":"button",
-    "onclick":"BrowserStop();",
-    "observes":"canStop"
-  },
-  "prefbar:button:separator0":{
-    "type":"separator"
   },
   "prefbar:button:home":{
     "label":"Home",

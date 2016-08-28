@@ -25,10 +25,6 @@
 <!ENTITY no "NEIN">
 
 <!-- Labels of buttons -->
-<!ENTITY back.label "Zurück">
-<!ENTITY forward.label "Vor">
-<!ENTITY reload.label "Neu laden">
-<!ENTITY stop.label "Stopp">
 <!ENTITY home.label "Home">
 <!ENTITY tabjavascript.label "Javascript (Tab)">
 <!ENTITY tabimages.label "Bilder (Tab)">
@@ -57,7 +53,6 @@
 <!ENTITY clearall.label "Alles leeren">
 <!ENTITY resize.label "Resize">
 <!ENTITY newtab.label "Neues Tab">
-<!ENTITY savepage.label "Seite speichern">
 <!ENTITY restoretab.label "Restore Tab">
 <!ENTITY killflash.label "Kill Flash">
 <!ENTITY fontdown.label "Font -">
@@ -73,10 +68,6 @@
 <!ENTITY prefbarlanglist.label "Sprache">
 
 <!-- Button descriptions -->
-<!ENTITY back.desc "Dies ist ein sehr einfacher &quot;Zurück&quot; Button, der eine Seite in der Browser-History zurückspringt, genau so wie der &quot;Zurück&quot; Button in der Navigations-Symbolleiste.  Anders als der &quot;Zurück&quot; Button, in der Navigations-Symbolleiste, hat dieser Button keine Dropdown-Liste, mit den zuletzt gewählten Seiten, hat kein Icon und wird nicht deaktiviert, wenn es keine Seite zum zurückgehen gibt.  Wie gesagt, es ist nur ein einfacher &quot;Zurück&quot; Button.">
-<!ENTITY forward.desc "Dies ist ein sehr einfacher &quot;Weiter&quot; Button, ähnlich wie der einfache &quot;Zurück&quot; Button, der oben beschrieben wurde. Alle Einschränkungen, die dort genannt wurden, gelten auch hier.">
-<!ENTITY reload.desc "Dies ist ein sehr einfacher &quot;Neu laden&quot; Button, der zum einfachen &quot;Zurück&quot; Button und zum einfachen &quot;Weiter&quot; Button gehört. Anders als bei den oben beschriebenen Buttons hat dieser Button bereits alle Funktionalitäten wie der zugehörige Button auf der Navigations-Symbolleiste, was bedeutet das Sie ihn bei gedrückter Shift-Taste anklicken können, um das neu Laden der Seite, unabhängig vom Browser-Cache, zu erzwingen oder einfach klicken für ein normales neu Laden.">
-<!ENTITY stop.desc "Ein sehr einfacher &quot;Stopp&quot; Button, um die Gruppe zu vervollständigen. Dieser Button beobachtet nicht die Aktivität im Browser und ist deshalb auch aktiv, wenn der Navigator im Moment nichts tut (zu dieser Zeit hat das Anklicken aber absolut keinen Effekt).">
 <!ENTITY home.desc "Obwohl dieser Button nicht so schön aussieht, wie der richtige &quot;Startseite&quot; Button (er hat das Icon nicht, zumindest noch nicht) bringt ein Klick sie genau so schnell zu ihrer Startseite.">
 <!ENTITY tabjavascript.desc "Dies schaltet Javascript für das ausgewählte Tab ein oder aus.">
 <!ENTITY tabimages.desc "Dies schaltet die Anzeige von Bildern für das ausgewählte Tab ein oder aus.">
@@ -109,7 +100,6 @@
 <!ENTITY clearall.desc "Leert die History, die Adressleiste, Festplatten-Cache und Speicher-Cache.">
 <!ENTITY resize.desc "Ändert die Größe des Browser-Fensters auf die, in der Liste eingestellte, Auflösung.">
 <!ENTITY newtab.desc "Öffnet ein neues Browser Tab. Ich weiß nicht wirklich, wie praktisch das ist, aber jemand wollte es und so habe ich es eingebaut.">
-<!ENTITY savepage.desc "Klicken Sie auf diesen Button, um die aktuelle Seite auf einen Datenträger zu speichern.">
 <!ENTITY restoretab.desc "Dieser Button stellt das zuletzt geschlossene Tab wieder her.">
 <!ENTITY killflash.desc "Klicken Sie auf diesen Button, um alle eingebetteten Flash-Objekte, auf der aktuellen Seite, zu entfernen.">
 <!ENTITY fontdown.desc "Verringert die Schriftgröße.">
@@ -127,7 +117,6 @@
 <!ENTITY proxylist.desc "Eine Liste, in die benötigte Proxies mit den zugehörigen Ports eingetragen werden können. Dies macht es einfach, zwischen den Proxies zu wechseln.">
 <!ENTITY prefbarlanglist.desc "Ermöglicht das Umschalten der Sprachkennung, die an die Webserver übermittelt wird. Der Eintrag &quot;Standard&quot; setzt die Einstellung zurück auf den Wert, den der Autor Ihres Firefox/SeaMonkey Sprachpakets für Ihre Sprachumgebung vorgesehen hat.">
 
-<!ENTITY separator1.desc "Dieser Abstandshalter kommt zwischen die Navigations-Buttons und den Home-Button (oder wo auch immer sie ihn an der rechten Seite der Navigations-Buttons anordnen). Es gibt mehrere Abstandshalter in der PrefBar Button-Liste, einen für jede Gruppe von Elementen. Sie brauchen ein wenig Platz auf der Toolbar, aber sie sorgen dafür, dass die Button-Anordnungen besser aussehen. Deshalb ist es empfehlenswert, die Abstandshalter aktiviert zu lassen, es sei denn Sie haben einen sehr kleinen Monitor (oder wollen eine große Anzahl von Buttons auf einmal aktiviert haben).">
 <!ENTITY separator2.desc "Ein Abstandshalter, der auf die rechte Seite des Home-Buttons gehört. Sie können ihn (natürlich) an jede beliebige Stelle auf der Toolbar verschieben.">
 <!ENTITY separatorX.desc "Noch ein Abstandshalter.">
 <!ENTITY spacer0.desc "Dieses Element zeigt nichts an, aber vergrößert sich so groß, wie möglich, um den ganzen übrigen Platz einzunehmen. Dadurch werden alle Elemente, auf der rechten Seite dieses Elements, an die rechte Seite der Toolbar geschoben.">

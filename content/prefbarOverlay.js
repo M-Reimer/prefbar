@@ -109,9 +109,7 @@ function StartPrefBar(event) {
   // If the "openPrefBarHP" flag is set, then do so and unset flag.
   if (goPrefBar.openPrefBarHP) {
     goPrefBar.openPrefBarHP = false;
-    var browser = getBrowser();
-    var tab = browser.addTab("http://prefbar.tuxfamily.org/updated.html");
-    browser.selectedTab = tab;
+    getBrowser().addTab("http://prefbar.tuxfamily.org/updated.html");
   }
 
   // Initialize AustralisHandler if applicable

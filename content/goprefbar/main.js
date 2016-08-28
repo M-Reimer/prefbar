@@ -41,7 +41,7 @@
 // |  goprefbar.js component (goPrefBar)
 // +-
 
-var prefbarVersion = 20160803;
+var prefbarVersion = 20160828;
 
 var PrefBranch = Components.classes["@mozilla.org/preferences-service;1"]
   .getService(Components.interfaces.nsIPrefBranch2);

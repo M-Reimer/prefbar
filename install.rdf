@@ -8,7 +8,7 @@
     <em:multiprocessCompatible>true</em:multiprocessCompatible>
     <em:unpack>true</em:unpack>
     <em:name>PrefBar</em:name>
-    <em:version>7.1.0rc1</em:version>
+    <em:version>7.1.0</em:version>
     <em:description>The all in one toolbar(item)</em:description>
     <em:creator>Manuel Reimer</em:creator>
     <em:contributor>Aaron Anderson</em:contributor>
@@ -24,7 +24,7 @@
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>4.0</em:minVersion>
-        <em:maxVersion>49.0</em:maxVersion>
+        <em:maxVersion>51.0</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -33,7 +33,7 @@
       <Description>
         <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
         <em:minVersion>2.1</em:minVersion>
-        <em:maxVersion>2.39</em:maxVersion>
+        <em:maxVersion>2.48</em:maxVersion>
       </Description>
     </em:targetApplication>
 

@@ -98,7 +98,11 @@ function ReadJSON(aFile) {
   if (typeof aFile == "string") {
     var ios = Components.classes["@mozilla.org/network/io-service;1"]
       .getService(Components.interfaces.nsIIOService);
-    var channel = ios.newChannel(aFile, null, null);
+    var channel;
+    if ("newChannel2" in ios)
+      channel = ios.newChannel2(aFile, null, null, null, null, null, null, null);
+    else
+      channel = ios.newChannel(aFile, null, null);
     istream = channel.open();
   }
   else {

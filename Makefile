@@ -4,7 +4,7 @@
 #
 
 VERSION=7.1.0rc1
-BUILD=20160731
+BUILD=20160803
 
 .PHONY: all patch chrome xpi clean check-tree update-ja webhelp
 all: patch xpi
@@ -14,7 +14,7 @@ patch:
     -i install.rdf
 	sed -r "s/(v\. ).*(, &builddate; )[0-9]*/\1$(VERSION)\2$(BUILD)/" \
     -i content/help/index.xhtml
-	sed -r "s/(const prefbarVersion = )[^;]*/\1$(BUILD)/" \
+	sed -r "s/(var prefbarVersion = )[^;]*/\1$(BUILD)/" \
     -i content/goprefbar/main.js
 
 chrome:

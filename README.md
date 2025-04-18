@@ -11,6 +11,6 @@ PrefBar allowed stuff like "immediate installation without browser restart" or "
 
 The source code is directly in this repository. I've added all the contributed buttons to this repository, too, so all the sourcecode is in one place.
 
-Installation packages can be found in [Releases](releases)
+Installation packages can be found in [Releases](https://github.com/M-Reimer/prefbar/releases)
 
-You'll find the HowTos and contributed button list in the project [Wiki](wiki)
+You'll find the HowTos and contributed button list in the project [Wiki](https://github.com/M-Reimer/prefbar/wiki)

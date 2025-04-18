@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:cleardlmgr"
+    ]
+  },
+  "prefbar:button:cleardlmgr": {
+    "type": "button",
+    "label": "ClearDL",
+    "onclick": "prefbarClearDownloads();\n"
+  }
+}

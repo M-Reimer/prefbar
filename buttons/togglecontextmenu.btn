@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:togglecontextmenu"
+    ]
+  },
+  "prefbar:button:togglecontextmenu": {
+    "type": "check",
+    "label": "Context Menu",
+    "prefstring": "dom.event.contextmenu.enabled",
+    "topref": "value",
+    "frompref": "value"
+  }
+}

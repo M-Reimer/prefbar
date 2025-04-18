@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:geolocation"
+    ]
+  },
+  "prefbar:button:geolocation": {
+    "type": "check",
+    "label": "Geolocation",
+    "prefstring": "geo.enabled",
+    "topref": "value",
+    "frompref": "value"
+  }
+}

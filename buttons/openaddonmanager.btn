@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:openaddonmanager"
+    ]
+  },
+  "prefbar:button:openaddonmanager": {
+    "type": "button",
+    "label": "Add-ons",
+    "onclick": "if (\"toEM\" in window)\n  toEM();\nelse if (\"BrowserOpenAddonsMgr\" in window)\n  BrowserOpenAddonsMgr();\nelse\n  goPrefBar.msgAlert(window, \"Your browser is not supported.\");"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:tabmetaredirect"
+    ]
+  },
+  "prefbar:button:tabmetaredirect": {
+    "type": "extcheck",
+    "label": "MetaRedirect (Tab)",
+    "setfunction": "prefbarGetDocShell().allowMetaRedirects = value;",
+    "getfunction": "value = prefbarGetDocShell().allowMetaRedirects;",
+    "browserbtnupdatefor": "tab"
+  }
+}

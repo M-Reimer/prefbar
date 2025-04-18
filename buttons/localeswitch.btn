@@ -1,0 +1,39 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:localeswitch"
+    ]
+  },
+  "prefbar:button:localeswitch": {
+    "type": "extlist",
+    "dontupdatelistitems":true,
+    "label": "Locale Switch",
+    "setfunction": "\ngoPrefBar.SetPref(\"intl.locale.matchOS\",false);\nswitch (value){\n\tcase '!RESET!':\n\t\tgoPrefBar.ClearPref(\"general.useragent.locale\");\n\t\tbreak;\n\tcase '!AUTO!':\n\n\t\tgoPrefBar.SetPref('intl.locale.matchOS',true);\n\t\tbreak;\n\tdefault:\n\t\tif(goPrefBar.GetPref(\"general.useragent.locale\")!=value){\n\n\t\t\tgoPrefBar.SetPref(\"general.useragent.locale\",value);\n\n\t\t}\n}\n",
+    "getfunction": "if(goPrefBar.GetPref(\"intl.locale.matchOS\")){\nvalue='!AUTO!'\n}else{\nvalue=goPrefBar.PrefBranch.prefHasUserValue(\"general.useragent.locale\")?goPrefBar.GetPref(\"general.useragent.locale\",'en-US'):'!RESET!';\n}\n",
+    "items": [
+      [
+        "Default",
+        "!RESET!"
+      ],
+      [
+        "Automatic",
+        "!AUTO!"
+      ],
+      [
+        "English (en-US)",
+        "en-US"
+      ],
+      [
+        "German (de)",
+        "de"
+      ],
+      [
+        "Japanese (ja)",
+        "ja"
+      ]
+    ]
+  }
+}

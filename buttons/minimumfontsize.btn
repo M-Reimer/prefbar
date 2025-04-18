@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:minimumfontsize"
+    ]
+  },
+  "prefbar:button:minimumfontsize": {
+    "type": "extcheck",
+    "label": "Min Font Size",
+    "getfunction": "value = (goPrefBar.GetPref(\"font.minimum-size.x-western\") != 0)",
+    "browserbtnupdatefor": "false",
+    "setfunction": "const sizepref = \"font.minimum-size.x-western\";\nconst storepref = \"extensions.prefbar.buttons.minimumfontsize.lastsize\";\n\n// Checkbox checked\nif (value)\n  goPrefBar.SetPref(sizepref, goPrefBar.GetPref(storepref));\n// Checkbox unchecked and value in pref not zero\nelse if (goPrefBar.GetPref(sizepref) != 0) {\n  goPrefBar.SetPref(storepref, goPrefBar.GetPref(sizepref));\n  goPrefBar.SetPref(sizepref, 0);\n}"
+  }
+}

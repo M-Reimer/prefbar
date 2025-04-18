@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:profilemgr"
+    ]
+  },
+  "prefbar:button:profilemgr": {
+    "type": "button",
+    "label": "Profiles",
+    "onclick": "if (\"toProfileManager\" in window)\n  toProfileManager();\nelse\n  alert(\"This button is not supported in your browser\");"
+  }
+}

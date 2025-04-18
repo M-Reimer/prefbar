@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:pdfreader"
+    ]
+  },
+  "prefbar:button:pdfreader": {
+    "type": "extcheck",
+    "label": "PDF",
+    "browserbtnupdatefor": "false",
+    "setfunction": "//---------------------------------------------------\n// PDF Reader Checkbox v1.0\n// 2010-12-05 by Alexander Brück\n// Switch PDF Reader Plugins ON/OFF\n// supports Foxit Reader & Adobe Acrobat Reader\n//---------------------------------------------------\nvar plugin = \"PDF Reader\";\nvar regEx = /(^| )(foxit reader plugin|adobe acrobat)/i;\ngoPrefBar.SetPluginEnabled(regEx, value, plugin);",
+    "getfunction": "var regEx = /(^| )(foxit reader plugin|adobe acrobat)/i;\nvalue = goPrefBar.GetPluginEnabled(regEx);"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:exportbookmarkshtml_old"
+    ]
+  },
+  "prefbar:button:exportbookmarkshtml_old": {
+    "type": "button",
+    "label": "Export Bookmarks (HTML)",
+    "onclick": "const nsIFilePicker = Components.interfaces.nsIFilePicker;\n\nvar fp = Components.classes[\"@mozilla.org/filepicker;1\"]\n\t           .createInstance(nsIFilePicker);\nfp.init(window, \"Salva Segnalibri\", nsIFilePicker.modeSave);\nfp.appendFilters(nsIFilePicker.filterHTML);\nfp.defaultString = \"bookmarks.html\";\n\nvar rv = fp.show();\nif (rv == nsIFilePicker.returnOK || rv == nsIFilePicker.returnReplace) {\n  var file = fp.file;\n  path = fp.file.path;\n}\n\nvar minod = path.replace(/^.*[\\\\\\/]/, '');\nvar fiod = minod.length;\n\nfiod++;\n\nvar dosad = path.length;\nvar dras = ( dosad - fiod );\n\nvar prodf = path.substring(0, (dras));\n\nvar filer = Components.classes[\"@mozilla.org/file/local;1\"].\n           createInstance(Components.interfaces.nsILocalFile);\nfiler.initWithPath(prodf);\nfiler.append(minod);\nfiler.createUnique(Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0666);\nvar exporter = Components.classes[\"@mozilla.org/browser/places/import-export-service;1\"].\n  getService(Components.interfaces.nsIPlacesImportExportService);\nexporter.exportHTMLToFile(filer);",
+    "hkkey": "X",
+    "hkkeycode": "",
+    "hkmodifiers": "alt"
+  }
+}

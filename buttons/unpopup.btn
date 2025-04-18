@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:unpopup"
+    ]
+  },
+  "prefbar:button:unpopup": {
+    "type": "button",
+    "label": "unpopup",
+    "onclick": "var win = document.getElementById(\"main-window\");\nwin.removeAttribute(\"chromehidden\");"
+  }
+}

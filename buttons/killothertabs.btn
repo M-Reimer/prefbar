@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:killothertabs"
+    ]
+  },
+  "prefbar:button:killothertabs": {
+    "type": "button",
+    "label": "KillOtherTabs",
+    "onclick": "function main() {\n  var tabbrowser = getBrowser();\n  var tabarray = tabbrowser.mTabs;\n  for (var i = tabarray.length - 1; i >= 0; i--) {\n    var tab = tabarray[i];\n    if (tab == tabbrowser.selectedTab) continue;\n    tabbrowser.removeTab(tab);\n  }\n}\n\nmain();"
+  }
+}

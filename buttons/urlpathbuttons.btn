@@ -1,0 +1,21 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:urlpath_cddotdot",
+      "prefbar:button:urlpath_cdslash"
+    ]
+  },
+  "prefbar:button:urlpath_cddotdot": {
+    "type": "button",
+    "label": "..",
+    "onclick": "// PrefBar URL Path buttons\n// Copyright (C) Manuel Reimer (Manuel _dot_ Reimer _at_ gmx _dot_ de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 3 as published by the Free Software Foundation\n\nvar path = window._content.document.location.pathname;\nvar parts = path.split(\"/\");\nif (parts[parts.length - 1] == \"\") parts.pop();\nif (parts.length > 0) {\n  delete parts[parts.length - 1];\n  path = parts.join(\"/\");\n  window._content.document.location.pathname = path;\n}"
+  },
+  "prefbar:button:urlpath_cdslash": {
+    "type": "button",
+    "label": "/",
+    "onclick": "// PrefBar URL Path buttons\n// Copyright (C) Manuel Reimer (Manuel _dot_ Reimer _at_ gmx _dot_ de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 3 as published by the Free Software Foundation\n\nwindow._content.document.location.pathname = \"\";"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:clonetab"
+    ]
+  },
+  "prefbar:button:clonetab": {
+    "type": "button",
+    "label": "Clone",
+    "onclick": "// PrefBar Clone Tab button\n// Copyright (C) Manuel Reimer (Manuel _dot_ Reimer _at_ gmx _dot_ de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 3 as published by the Free Software Foundation\n\nvar curTab = gBrowser.mCurrentTab;\nvar curBrowser = curTab.linkedBrowser;\nvar curX = curBrowser.contentWindow.scrollX;\nvar curY = curBrowser.contentWindow.scrollY\nvar curHistory = curBrowser.sessionHistory;\nvar newTab = gBrowser.addTab(\"about:blank\");\nvar newBrowser = newTab.linkedBrowser;\nvar newHistory = newBrowser.sessionHistory;\n\nnewHistory.QueryInterface(Components.interfaces.nsISHistoryInternal);\n\nfor (var i = 0; i < curHistory.count; i++) {\n  newHistory.addEntry(curHistory.getEntryAtIndex(i, false), true);\n}\n\nif (curHistory.count) newBrowser.gotoIndex(curHistory.index);\n\nvar background = goPrefBar.GetPref(\"browser.tabs.loadInBackground\");\nif (!background)\n  gBrowser.selectedTab = newTab;\n\nfunction doScroll(browser, x, y, tries) {\n  if (!tries) tries = 0;\n  if (tries > 20) return;\n  if (browser.docShell.busyFlags != browser.docShell.BUSY_FLAGS_NONE)\n    setTimeout(doScroll, 10, browser, x, y, tries + 1);\n  else\n    browser.contentWindow.scrollTo(x, y);\n}\n\ndoScroll(newBrowser, curX, curY);"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:fontreset"
+    ]
+  },
+  "prefbar:button:fontreset": {
+    "type": "button",
+    "label": "Font =",
+    "onclick": "if (\"FullZoom\" in window)\n  FullZoom.reset();\nelse\n  ZoomManager.prototype.getInstance().reset();"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:mgBookmarks"
+    ]
+  },
+  "prefbar:button:mgBookmarks": {
+    "type": "button",
+    "label": "Bookmarks",
+    "onclick": "if (\"BrowserEditBookmarks\" in window)\n  // SeaMonkey 1.x\n  BrowserEditBookmarks();\nelse if (\"toBookmarksManager\" in window)\n  // SeaMonkey 2.x\n  toBookmarksManager();\nelse if (\"PlacesCommandHook\" in window)\n  // Firefox 4.x\n  PlacesCommandHook.showPlacesOrganizer('AllBookmarks');\nelse\n  // Firefox < 4.x\n  toOpenWindowByType('bookmarks:manager', 'chrome://browser/content/bookmarks/bookmarksManager.xul');"
+  }
+}

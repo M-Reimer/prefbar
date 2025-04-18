@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:serverinfo"
+    ]
+  },
+  "prefbar:button:serverinfo": {
+    "type": "button",
+    "label": "si",
+    "onclick": "// Server Info Button for PrefBar\n// Copyright (C) Manuel Reimer (Manuel _dot_ Reimer _at_ gmx _dot_ de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 2 as published by the Free Software Foundation\n\nfunction onLoad(e) {\n  var svr = e.target.getResponseHeader(\"Server\");\n\n  var title = \"PrefBar Server Info Button\";\n\n  // No response at all? Tell user and exit\n  if (!svr) {\n    goPrefBar.msgAlert(window, \"Server did not return any information\", title);\n    if (typeof button == \"object\") button.disabled = false;\n    return;\n  }\n\n  // Try to preparse response\n  var os; var mods;\n  if (svr.match(/([^ ]+) *\\((.*?)\\) ?(.*)/)) {\n    svr = RegExp.$1;\n    os = RegExp.$2;\n    mods = RegExp.$3;\n  }\n\n  // Add some more info based on given stuff\n  if (svr.match(/microsoft/i) && !os) os = \"Windows\";\n  if (os && os.match(/^(debian|red hat)$/i))\n    os = \"Linux, \" + os;\n\n  // Generate Message\n  var msg = \"\";\n  if (svr) msg += \"Server: \" + svr + \"\\n\";\n  if (os) msg += \"OS: \" + os + \"\\n\";\n  if (mods) {\n    msg += \"\\nMods:\\n\";\n    msg += mods.split(\" \").join(\"\\n\");\n  }\n\n  goPrefBar.msgAlert(window, msg, title);\n\n  if (typeof button == \"object\") button.disabled = false;\n}\n\nfunction onError(e) {\n  alert(\"Error \" + e.target.status + \" occurred while requesting info.\");\n  if (typeof button == \"object\") button.disabled = false;\n}\n\nfunction onTimeout(request) {\n  if (request.readyState == 4) return;\n  request.abort();\n  alert(\"Request timed out\");\n  if (typeof button == \"object\") button.disabled = false;\n}\n\nvar url = window._content.document.location.toString();\n\n// Send request\nvar request = new XMLHttpRequest;\nrequest.onerror = onError;\nrequest.onload = onLoad;\nrequest.open(\"HEAD\", url, true);\nrequest.send(null);\n\n// Set a timeout of 10 seconds.\nsetTimeout(onTimeout, 10000, request);\n\n// Disable button\nif (typeof button == \"object\") button.disabled = true;"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:cookiebehaviormenulist"
+    ]
+  },
+  "prefbar:button:cookiebehaviormenulist": {
+    "items": [
+      [
+        "No Cookies",
+        "2"
+      ],
+      [
+        "Cookies from Domain",
+        "1"
+      ],
+      [
+        "All Cookies",
+        "0"
+      ],
+      [
+        "Domain + Existing 3rd Party",
+        "3"
+      ]
+    ],
+    "type": "menulist",
+    "label": "Cookies",
+    "prefstring": "network.cookie.cookieBehavior"
+  }
+}

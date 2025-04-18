@@ -1,0 +1,21 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:validatehtml",
+      "prefbar:button:validatecss"
+    ]
+  },
+  "prefbar:button:validatehtml": {
+    "type": "button",
+    "label": "Validate HTML",
+    "onclick": "var url = window.content.location.href;\nurl = \"http://validator.w3.org/check?verbose=1&uri=\" + escape(url);\nvar tab = gBrowser.addTab(url);\nvar browser = gBrowser.getBrowserForTab(tab);\nbrowser.addEventListener(\"load\", function() {\n  var style = \"-moz-appearance: none !important;\";\n  if (browser.contentDocument.title.match(/^\\[Valid\\]/))\n    style += \"background-color: green !important\";\n  else\n    style += \"background-color: red !important\";\n  tab.setAttribute(\"style\", style);\n}, true);"
+  },
+  "prefbar:button:validatecss": {
+    "type": "button",
+    "label": "Validate CSS",
+    "onclick": "var url = window.content.location.href;\nurl = \"http://jigsaw.w3.org/css-validator/validator?profile=css21&warning=0&uri=\" + escape(url);\nvar tab = gBrowser.addTab(url);\nvar browser = gBrowser.getBrowserForTab(tab);\nbrowser.addEventListener(\"load\", function() {\n  var style = \"-moz-appearance: none !important;\";\n  if (browser.contentDocument.getElementById(\"congrats\"))\n    style += \"background-color: green !important\";\n  else\n    style += \"background-color: red !important\";\n  tab.setAttribute(\"style\", style);\n}, true);"
+  }
+}

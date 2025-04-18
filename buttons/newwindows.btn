@@ -1,0 +1,16 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:newwindows"
+    ]
+  },
+  "prefbar:button:newwindows": {
+    "type": "extcheck",
+    "label": "newwindows",
+    "setfunction": "// New Windows Button for PrefBar\n// Copyright (C) Manuel Reimer <manuel.reimer@gmx.de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 3 as published by the Free Software Foundation\n\nif (!value) {\n  // Open links, that would normally open in a new window, in the current tab/window\n  goPrefBar.SetPref(\"browser.link.open_newwindow\", 1);\n  // Don't append the above setting to JavaScript-Calls, if the JavaScript needes the separate window\n  goPrefBar.SetPref(\"browser.link.open_newwindow.restriction\", 2);\n}\nelse {\n  goPrefBar.ClearPref(\"browser.link.open_newwindow\");\n  goPrefBar.ClearPref(\"browser.link.open_newwindow.restriction\");\n}\n",
+    "getfunction": "value = (goPrefBar.GetPref(\"browser.link.open_newwindow\") != 1);\n"
+  }
+}

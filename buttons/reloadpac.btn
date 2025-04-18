@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:reloadpac"
+    ]
+  },
+  "prefbar:button:reloadpac": {
+    "type": "button",
+    "label": "reloadPAC",
+    "onclick": "// PrefBar reloadPAC button\n// Copyright (C) Manuel Reimer (Manuel _dot_ Reimer _at_ gmx _dot_ de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 3 as published by the Free Software Foundation\n\nvar pps = Components.classes[\"@mozilla.org/network/protocol-proxy-service;1\"]\nif (\"nsPIProtocolProxyService\" in Components.interfaces) {\n  var url = goPrefBar.GetPref(\"network.proxy.autoconfig_url\");\n  pps = pps.getService(Components.interfaces.nsPIProtocolProxyService);\n  pps.configureFromPAC(url);\n}\nelse {\n  pps = pps.getService();\n  pps.reloadPAC();\n}"
+  }
+}

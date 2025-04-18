@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:tabfocuscheckbox"
+    ]
+  },
+  "prefbar:button:tabfocuscheckbox": {
+    "type": "check",
+    "label": "Focus New Tabs",
+    "prefstring": "browser.tabs.loadInBackground",
+    "topref": "!value",
+    "frompref": "!value"
+  }
+}

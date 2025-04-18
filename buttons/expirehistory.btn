@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:expirehistory"
+    ]
+  },
+  "prefbar:button:expirehistory": {
+    "type": "button",
+    "label": "Expire History",
+    "onclick": "//  This script was suggested by \"al_9x\" in a comment in bug #660646\nComponents.classes['@mozilla.org/browser/nav-history-service;1'].getService(Components.interfaces.nsIBrowserHistory).removeVisitsByTimeframe(0, \n     (new Date().setHours(0, 0, 0, 0)\n      - (parseInt(prompt('Days of history to keep', 30)) - 1) \n      * 24 * 60 * 60 * 1000) * 1000 - 1)"
+  }
+}

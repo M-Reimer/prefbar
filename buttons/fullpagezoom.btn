@@ -1,0 +1,16 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:fullpagezoom"
+    ]
+  },
+  "prefbar:button:fullpagezoom": {
+    "type": "extcheck",
+    "label": "Full Page Zoom",
+    "setfunction": "// Use Firefox builtin ZoomManager if available\n// This gives immediate feedback to user without page reload\nif (\"ZoomManager\" in window &&\n    \"toggleZoom\" in ZoomManager &&\n    goPrefBar.GetPref(\"browser.zoom.full\") != value)\n  ZoomManager.toggleZoom();\n// Just set pref in all other cases\nelse\n  goPrefBar.SetPref(\"browser.zoom.full\", value);\n",
+    "getfunction": "value = goPrefBar.GetPref(\"browser.zoom.full\");\n"
+  }
+}

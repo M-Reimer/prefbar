@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:silverlight"
+    ]
+  },
+  "prefbar:button:silverlight": {
+    "type": "extcheck",
+    "label": "Silverlight",
+    "browserbtnupdatefor": "false",
+    "setfunction": "//---------------------------------------------------\n// Silverlight Checkbox v1.0\n// 2010-12-05 by Alexander Brück\n// Switch the Microsoft Silverlight Plugin ON/OFF\n//---------------------------------------------------\nvar plugin = \"Silverlight\";\nvar regEx = /(^| )silverlight plug-?in/i;\ngoPrefBar.SetPluginEnabled(regEx, value, plugin);",
+    "getfunction": "var regEx = /(^| )silverlight plug-?in/i;\nvalue = goPrefBar.GetPluginEnabled(regEx);"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:killsession"
+    ]
+  },
+  "prefbar:button:killsession": {
+    "type": "button",
+    "label": "KillSess",
+    "onclick": "// Kill all session cookies\nvar cookiemanager = Components.classes[\"@mozilla.org/cookiemanager;1\"].getService();\ncookiemanager = cookiemanager.QueryInterface(Components.interfaces.nsICookieManager);\nvar enumerator = cookiemanager.enumerator;\nwhile (enumerator.hasMoreElements()) {\n  var cookie = enumerator.getNext();\n  if (!cookie) break;\n  cookie = cookie.QueryInterface(Components.interfaces.nsICookie);\n  if (cookie.expires == 0)\n    cookiemanager.remove(cookie.host, cookie.name, cookie.path, false);\n}\n\n// Kill HTTP auth\nvar authmanager = Components.classes['@mozilla.org/network/http-auth-manager;1'].getService();\nauthmanager = authmanager.QueryInterface(Components.interfaces.nsIHttpAuthManager);\nauthmanager.clearAll();"
+  }
+}

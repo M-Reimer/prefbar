@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:togglepdfjs"
+    ]
+  },
+  "prefbar:button:togglepdfjs": {
+    "label": "pdfjs",
+    "type": "check",
+    "prefstring": "pdfjs.disabled",
+    "topref": "!value",
+    "frompref": "!value"
+  }
+}

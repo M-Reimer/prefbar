@@ -1,0 +1,29 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:imagemenulist"
+    ]
+  },
+  "prefbar:button:imagemenulist": {
+    "items": [
+      [
+        "All Imgs",
+        "1"
+      ],
+      [
+        "Srvr Imgs",
+        "3"
+      ],
+      [
+        "No Imgs",
+        "2"
+      ]
+    ],
+    "type": "menulist",
+    "label": "Image Menu",
+    "prefstring": "permissions.default.image"
+  }
+}

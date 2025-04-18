@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:reloaddomaintabs"
+    ]
+  },
+  "prefbar:button:reloaddomaintabs": {
+    "type": "button",
+    "label": "ReloadDomain",
+    "onclick": "function main() {\n  var tabbrowser = getBrowser();\n  var searchdomain;\n  try {\n    searchdomain = tabbrowser.contentDocument.location.host;\n  } catch(e) {return;}\n\n  var tabarray = tabbrowser.mTabs;\n  for (var i = 0; i < tabarray.length; i++) {\n    var browser = tabbrowser.getBrowserForTab(tabarray[i]);\n    var curdomain;\n    try {\n      curdomain = browser.contentDocument.location.host;\n    } catch(e) {}\n    if (searchdomain == curdomain) browser.reload();\n  }\n}\n\nmain();"
+  }
+}

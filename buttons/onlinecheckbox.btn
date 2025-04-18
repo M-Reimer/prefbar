@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:onlinecheckbox"
+    ]
+  },
+  "prefbar:button:onlinecheckbox": {
+    "type": "extcheck",
+    "label": "Online",
+    "setfunction": "var ioService = Components.classes[\"@mozilla.org/network/io-service;1\"];\nioService = ioService.getService(Components.interfaces.nsIIOService2);\n\n// Stop automatic management of the offline status\ntry {\n  ioService.manageOfflineStatus = false;\n} catch (ex) {}\n\nioService.offline = !value;\n",
+    "getfunction": "var ioService = Components.classes[\"@mozilla.org/network/io-service;1\"];\nioService = ioService.getService(Components.interfaces.nsIIOService2);\n\nvalue = !ioService.offline;\n",
+    "initfunction": "// Create the event listener just once.\n// The listener is used, to update the checkbox, whenever the user clicks\n// one of the built-in Offline buttons.\nif (!(\"prefbarofflinecheckupdate\" in window)) {\n  // define listener. The listener calls PrefBar button update.\n  window.prefbarofflinecheckupdate = function() {\n    ButtonHandling.update();\n  }\n  // register listener to all built-in checkboxes, we find\n  var offlinemnu = document.getElementById(\"offlineGoOfflineCmd\");\n  var offlinebtn = document.getElementById(\"offline-status\");\n  var fxofflinemnu = document.getElementById(\"goOfflineMenuitem\");\n  if (offlinemnu)\n    offlinemnu.addEventListener(\"command\", window.prefbarofflinecheckupdate, false);\n  if (offlinebtn)\n    offlinebtn.addEventListener(\"command\", window.prefbarofflinecheckupdate, false);\n  if (fxofflinemnu)\n    fxofflinemnu.addEventListener(\"command\", window.prefbarofflinecheckupdate, false);\n}\n"
+  }
+}

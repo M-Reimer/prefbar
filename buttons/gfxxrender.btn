@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:gfxxrender"
+    ]
+  },
+  "prefbar:button:gfxxrender": {
+    "type": "check",
+    "label": "GFX",
+    "prefstring": "gfx.xrender.enabled",
+    "topref": "Boolean(value)",
+    "frompref": "Boolean(value)"
+  }
+}

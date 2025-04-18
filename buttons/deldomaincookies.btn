@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:deldomaincookies"
+    ]
+  },
+  "prefbar:button:deldomaincookies": {
+    "type": "button",
+    "label": "Clear Domain Cookies",
+    "onclick": "// Clear all domain cookies\nvar curHost = window._content.document.location.host;\nvar idx = curHost.lastIndexOf(\".\");\nif (idx > 0) {\n  idx = curHost.lastIndexOf(\".\", idx-1);\n}\nif (idx > 0) {\n  curHost = curHost.substring(idx+1);\n}\n// cut away port\nidx = curHost.lastIndexOf(\":\");\nif (idx > 0) {\n  curHost = curHost.substring(0, idx);\n}\nif (confirm (\"clear cookies for \"+curHost)) {\n  var cookiemanager = Components.classes[\"@mozilla.org/cookiemanager;1\"].getService();\n  cookiemanager = cookiemanager.QueryInterface(Components.interfaces.nsICookieManager);\n  var enumerator = cookiemanager.enumerator;\n  while (enumerator.hasMoreElements()) {\n    var cookie = enumerator.getNext();\n    if (!cookie) break;\n    cookie = cookie.QueryInterface(Components.interfaces.nsICookie);\n    //alert(\"cookie for: \"+cookie.host);\n    if (cookie.host.indexOf(curHost) >= 0) {\n      cookiemanager.remove(cookie.host, cookie.name, cookie.path, false);\n    }\n  }\n}\n"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:javascript.showInConsole",
+      "prefbar:button:extensions.logging",
+      "prefbar:button:devtools.chrome",
+      "prefbar:button:general.warnOnAboutConfig",
+      "prefbar:button:xul_cache",
+      "prefbar:button:javascript.strict",
+      "prefbar:button:browser.dump",
+      "prefbar:button:window.reload"
+    ]
+  },
+  "prefbar:button:javascript.showInConsole": {
+    "type": "extcheck",
+    "label": "Chrome Errors",
+    "setfunction": "\ngoPrefBar.SetPref(\"devtools.errorconsole.enabled\",value);\ngoPrefBar.SetPref(\"javascript.options.showInConsole\",value)",
+    "getfunction": "var devtools=goPrefBar.GetPref(\"devtools.errorconsole.enabled\");\nvar console=goPrefBar.GetPref(\"javascript.options.showInConsole\");\nvalue=(devtools&&console)?true:false;"
+  },
+  "prefbar:button:extensions.logging": {
+    "type": "check",
+    "label": "Ext Inst Log",
+    "prefstring": "extensions.logging.enabled",
+    "topref": "value",
+    "frompref": "value"
+  },
+  "prefbar:button:devtools.chrome": {
+    "type": "check",
+    "label": "Scratchpad for Browser",
+    "prefstring": "devtools.chrome.enabled",
+    "topref": "value",
+    "frompref": "value"
+  },
+  "prefbar:button:general.warnOnAboutConfig": {
+    "type": "check",
+    "label": "About Config Warn",
+    "prefstring": "general.warnOnAboutConfig",
+    "topref": "value",
+    "frompref": "value"
+  },
+  "prefbar:button:xul_cache": {
+    "type": "extcheck",
+    "label": "XUL Cache",
+    "setfunction": "goPrefBar.SetPref('nglayout.debug.disable_xul_cache',!value)\ngoPrefBar.SetPref('nglayout.debug.disable_xul_fastload',!value)",
+    "getfunction": "var cache=goPrefBar.GetPref('nglayout.debug.disable_xul_cache')\nvar fastload=goPrefBar.GetPref('nglayout.debug.disable_xul_fastload')\nvalue=(cache&&fastload)?false:true;"
+  },
+  "prefbar:button:javascript.strict": {
+    "type": "check",
+    "label": "JavaScript Strict",
+    "prefstring": "javascript.options.strict",
+    "topref": "value",
+    "frompref": "value"
+  },
+  "prefbar:button:browser.dump": {
+    "type": "check",
+    "label": "Enable dump()",
+    "prefstring": "browser.dom.window.dump.enabled",
+    "topref": "value",
+    "frompref": "value"
+  },
+  "prefbar:button:window.reload": {
+    "type": "button",
+    "label": "Reload Window",
+    "onclick": "window.location.reload();"
+  }
+}

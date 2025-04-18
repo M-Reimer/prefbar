@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:ebaynegs"
+    ]
+  },
+  "prefbar:button:ebaynegs": {
+    "type": "button",
+    "label": "ebaynegs",
+    "onclick": "// EBayNegs Button for PrefBar\n// Copyright (C) Manuel Reimer (Manuel _dot_ Reimer _at_ gmx _dot_ de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 3 as published by the Free Software Foundation\n\nfunction main() {\n  var doc = window.content.document;\n  var location = doc.location.toString();\n\n  var userid = url2userid(location);\n\n  if (!userid && location.match(/\\/itm\\//)) {\n    var links = doc.getElementsByTagName(\"a\");\n    for (var li = 0; li < links.length; li++) {\n      var href = links[li].getAttribute(\"href\");\n      if (!href) continue;\n      userid = url2userid(href);\n      if (userid) break;\n    }\n  }\n\n  if (!userid) {\n    alert(\"Unable to find user ID on this page!\");\n    return;\n  }\n\n  var url = \"http://toolhaus.org/cgi-bin/negs?User=\" + userid;\n  var newTab = gBrowser.addTab(url);\n  gBrowser.selectedTab = newTab;\n}\n\nfunction url2userid(url) {\n  if (url.match(/(?:stores|myworld)\\.ebay.*\\/([^\\/?]+)/))\n    return RegExp.$1;\n  else if (url.match(/search\\.ebay.*\\/_W0QQsassZ([^\\/]+)/))\n    return RegExp.$1;\n  else if (url.match(/feedback\\.ebay.*userid=([^&]+)/))\n    return RegExp.$1;\n}\n\nmain();"
+  }
+}

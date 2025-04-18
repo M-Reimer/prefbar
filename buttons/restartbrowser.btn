@@ -1,0 +1,15 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:restartbrowser"
+    ]
+  },
+  "prefbar:button:restartbrowser": {
+    "type": "button",
+    "label": "Restart",
+    "onclick": "// Restart Browser button for PrefBar\n// Code has been taken from Mozilla toolkit sourcecode and is licensed\n// under the same license as Mozilla toolkit itself.\n\nfunction main() {\n  var cancelQuit = Components.classes[\"@mozilla.org/supports-PRBool;1\"]\n                             .createInstance(Components.interfaces.nsISupportsPRBool);\n  var obs = Components.classes[\"@mozilla.org/observer-service;1\"]\n                      .getService(Components.interfaces.nsIObserverService);\n\n  obs.notifyObservers(cancelQuit, \"quit-application-requested\", \"restart\");\n  if (cancelQuit.data) return; // somebody canceled our quit request\n \n  var appStartup = Components.classes[\"@mozilla.org/toolkit/app-startup;1\"]\n                             .getService(Components.interfaces.nsIAppStartup);\n  appStartup.quit(Components.interfaces.nsIAppStartup.eAttemptQuit |\n                  Components.interfaces.nsIAppStartup.eRestart);\n}\n\nmain();"
+  }
+}

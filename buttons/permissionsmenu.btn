@@ -1,0 +1,34 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:permissionsmenu"
+    ]
+  },
+  "prefbar:button:permissionsmenu": {
+    "type": "extlist",
+    "label": "Permissions",
+    "setfunction": "// Storing those strings here is much simpler than trying to get real locale information\n// for two applications (SeaMonkey and Firefox)\nvar strings = {\n  image: {\n    title: \"Exceptions - Images\",\n    text: \"You can specify which websites are allowed to load images. Type the exact address of the website you want to manage and then click Block or Allow.\"\n  },\n  popup: {\n    title: \"Allowed Websites - Popups\",\n    text: \"You can specify which websites are allowed to open popup windows. Type the exact address of the website you want to allow and then click Allow.\"\n  },\n  install: {\n    title: \"Allowed Websites - Software Installation\",\n    text: \"You can specify which websites are allowed to install extensions and updates. Type the exact address of the website you want to allow and then click Allow.\"\n  },\n  cookie: {\n    title: \"Cookie Websites\",\n    text: \"Manage websites that can and cannot store cookies on your computer.\"\n  }\n}\n\nconst wm = Components.classes[\"@mozilla.org/appshell/window-mediator;1\"]\n  .getService(Components.interfaces.nsIWindowMediator);\nvar windowtype = goPrefBar.InFF() ? \"Browser:Permissions\" : \"permissions-\" + value;\n// Special case: Cookie manager in SeaMonkey\nif (goPrefBar.InSM() && value == \"cookie\") windowtype = \"mozilla:cookieviewer\";\nvar existingWindow = wm.getMostRecentWindow(windowtype);\n\nif (existingWindow)\n  existingWindow.focus();\nelse {\n  var permmgr_url = goPrefBar.InFF() ?\n    \"chrome://browser/content/preferences/permissions.xul\" :\n    \"chrome://communicator/content/permissions/permissionsManager.xul\";\n  // Special case: Cookie manager in SeaMonkey\n  if (goPrefBar.InSM() && value == \"cookie\") permmgr_url = \"chrome://communicator/content/permissions/cookieViewer.xul\"\n\n  var params = { blockVisible: (value == \"image\" || value == \"cookie\"),\n                 sessionVisible: (value == \"cookie\"),\n                 allowVisible: true,\n                 prefilledHost: \"\",\n                 permissionType: value,\n                 introText: strings[value].text,\n                 windowTitle: strings[value].title };\n\n  window.openDialog(permmgr_url, \"_blank\", \"chrome,resizable,center\", params);\n}\n",
+    "getfunction": "value = \"\";",
+    "items": [
+      [
+        "Popups",
+        "popup"
+      ],
+      [
+        "Images",
+        "image"
+      ],
+      [
+        "Installation",
+        "install"
+      ],
+      [
+        "Cookies",
+        "cookie"
+      ]
+    ]
+  }
+}

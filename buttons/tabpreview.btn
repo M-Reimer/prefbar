@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:tabpreview"
+    ]
+  },
+  "prefbar:button:tabpreview": {
+    "type": "check",
+    "label": "Preview",
+    "prefstring": "browser.tabs.tooltippreview.enable",
+    "topref": "value",
+    "frompref": "value"
+  }
+}

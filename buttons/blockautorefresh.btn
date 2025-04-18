@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:blockautorefresh"
+    ]
+  },
+  "prefbar:button:blockautorefresh": {
+    "type": "check",
+    "label": "Block Autorefresh",
+    "prefstring": "accessibility.blockautorefresh",
+    "topref": "value",
+    "frompref": "value"
+  }
+}

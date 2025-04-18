@@ -1,0 +1,17 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:togglecss"
+    ]
+  },
+  "prefbar:button:togglecss": {
+    "type": "extcheck",
+    "label": "CSS (Tab)",
+    "setfunction": "getBrowser().markupDocumentViewer.authorStyleDisabled = !value;",
+    "getfunction": "value = !getBrowser().markupDocumentViewer.authorStyleDisabled;",
+    "browserbtnupdatefor": "tab"
+  }
+}

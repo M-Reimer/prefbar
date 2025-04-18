@@ -1,0 +1,36 @@
+{
+  "prefbar:info": {
+    "formatversion": 3
+  },
+  "prefbar:menu:enabled": {
+    "items": [
+      "prefbar:button:mre_refererspoof"
+    ]
+  },
+  "prefbar:button:mre_refererspoof": {
+    "items": [
+      [
+        "don't spoof",
+        "DEFAULT"
+      ],
+      [
+        "send nothing",
+        ""
+      ],
+      [
+        "linux",
+        "http://www.linux.org/"
+      ],
+      [
+        "example",
+        "http://www.example.com/"
+      ]
+    ],
+    "type": "extlist",
+    "dontupdatelistitems": "true",
+    "label": "refererspoof",
+    "setfunction": "// Just set preference with selected value\ngoPrefBar.SetPref(\"extensions.prefbar.buttons.refererspoof\", value);",
+    "getfunction": "// Just display value of our preference\nvalue = goPrefBar.GetPref(\"extensions.prefbar.buttons.refererspoof\");",
+    "initfunction": "// Referer Spoof Menulist for PrefBar\n// Copyright (C) Manuel Reimer (Manuel _dot_ Reimer _at_ gmx _dot_ de)\n// This program is free software; you can redistribute it and/or\n// modify it under the terms of the GNU General Public License\n// version 3 as published by the Free Software Foundation\n\n// If our observer isn't already initialized, then do so, now\nif (!(\"refererspoofobserver\" in goPrefBar.buttons)) {\n  var observer = {\n    observe: function(subject, topic, data) \n    {\n      if (topic == \"http-on-modify-request\") {\n        // The References to \"goPrefBar\" and \"Components\", we inherit from the first\n        // browser window, are lost with the close of this window, so we override\n        // them with globals ones, based on our goPrefBar reference in this object.\n        var goPrefBar = this.goPrefBar;\n        var Components = goPrefBar.Components;\n\n        var httpChannel = subject.QueryInterface(Components.interfaces.nsIHttpChannel);\n        var val = goPrefBar.GetPref(\"extensions.prefbar.buttons.refererspoof\", \"DEFAULT\");\n        if (val == \"DEFAULT\") return;\n        httpChannel.setRequestHeader(\"Referer\", val, false);\n      }\n    }\n  };\n\n  // Keep a reference to \"goPrefBar\" in the observer object\n  observer.goPrefBar = goPrefBar;\n\n  var observerService = Components.classes[\"@mozilla.org/observer-service;1\"]\n                                  .getService(Components.interfaces.nsIObserverService);\n  observerService.addObserver(observer, \"http-on-modify-request\", false);\n\n  // Place reference to observer to goPrefBar.buttons\n  goPrefBar.buttons.refererspoofobserver = observer;\n}\n"
+  }
+}

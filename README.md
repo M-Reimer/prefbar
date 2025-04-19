@@ -7,6 +7,8 @@ PrefBar started as a simple toolbar to get easy access to common preferences lik
 
 PrefBar allowed stuff like "immediate installation without browser restart" or "customizable toolbar" long before Firefox had those built-in. With the ongoing Firefox development, the button management, provided by PrefBar, got more and more obsolete. Nowadays it is much easier to do the same with individual Add-ons for each task.
 
+![Screenshot](https://github.com/M-Reimer/prefbar/wiki/images/amo1.png)
+
 ## About this archive
 
 The source code is directly in this repository. I've added all the contributed buttons to this repository, too, so all the sourcecode is in one place.
@@ -14,3 +16,5 @@ The source code is directly in this repository. I've added all the contributed b
 Installation packages can be found in [Releases](https://github.com/M-Reimer/prefbar/releases)
 
 You'll find the HowTos and contributed button list in the project [Wiki](https://github.com/M-Reimer/prefbar/wiki)
+
+There is still a Forum thread around PrefBar which I visit occasionally [mozillaZine Forum thread](https://forums.mozillazine.org/viewtopic.php?f=48&t=2791817&start=9999)

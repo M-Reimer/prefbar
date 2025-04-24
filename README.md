@@ -1,4 +1,4 @@
-# PrefBar Archive
+# PrefBar
 Here you'll find the archived PrefBar project.
 PrefBar was an "All In One" Add-on for Mozilla browsers which has been replaced by some
 [Replacement Add-ons](https://addons.mozilla.org/firefox/collections/manuel-reimer/prefbar/)
@@ -13,8 +13,8 @@ PrefBar allowed stuff like "immediate installation without browser restart" or "
 
 The source code is directly in this repository. I've added all the contributed buttons to this repository, too, so all the sourcecode is in one place.
 
-Installation packages can be found in [Releases](https://github.com/M-Reimer/prefbar/releases)
+Installation packages can be found in [Releases](https://github.com/M-Reimer/prefbar/releases).
 
-You'll find the HowTos and contributed button list in the project [Wiki](https://github.com/M-Reimer/prefbar/wiki)
+You'll find the HowTos and contributed button list in the project [Wiki](https://github.com/M-Reimer/prefbar/wiki).
 
-There is still a Forum thread around PrefBar which I visit occasionally [mozillaZine Forum thread](https://forums.mozillazine.org/viewtopic.php?f=48&t=2791817&start=9999)
+There is still a [mozillaZine Forum thread](https://forums.mozillazine.org/viewtopic.php?f=48&t=2791817&start=9999) around PrefBar which I visit occasionally.
